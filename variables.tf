@@ -9,9 +9,11 @@ variable "cloud_provider" {
 variable "subnet_public" {
     type = object({
       v4_cidr_blocks = string
+      name = string
       description = string
     })
     default = {
+      name = "public-sub"
       v4_cidr_blocks = "192.168.10.0/24"
       description  = "Public Subnet"       
       }
@@ -20,10 +22,12 @@ variable "subnet_public" {
 
 variable "subnet_private" {
     type = object({
+      name = string
       v4_cidr_blocks = string
       description = string
     })
     default = {
+      name = "private-sub"
       v4_cidr_blocks = "192.168.20.0/24"
       description  = "Private Subnet"
   }

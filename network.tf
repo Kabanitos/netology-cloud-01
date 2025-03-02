@@ -3,6 +3,7 @@ resource "yandex_vpc_network" "homework" {
 }
 
 resource "yandex_vpc_subnet" "public" {
+  name = var.subnet_public.name
   v4_cidr_blocks = [var.subnet_public.v4_cidr_blocks]
   zone           = var.cloud_provider.zone
   network_id     = yandex_vpc_network.homework.id
@@ -10,6 +11,7 @@ resource "yandex_vpc_subnet" "public" {
 }
 
 resource "yandex_vpc_subnet" "private" {
+  name = var.subnet_private.name
   v4_cidr_blocks = [var.subnet_private.v4_cidr_blocks]
   zone           = var.cloud_provider.zone
   network_id     = yandex_vpc_network.homework.id
